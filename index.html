@@ -289,7 +289,6 @@
                 </div>
                 
                 <div class="space-y-4 bg-slate-900 border border-slate-800 rounded-3xl p-5" id="breakdown-container">
-                    <!-- Scholar -->
                     <div data-type="SCH" class="breakdown-row cursor-pointer hover:bg-slate-800/60 rounded-2xl p-1 -m-1 transition-colors">
                         <div class="flex justify-between items-baseline mb-1.5 px-1">
                             <div class="flex items-center gap-x-2">
@@ -303,7 +302,6 @@
                         </div>
                     </div>
                     
-                    <!-- Architect -->
                     <div data-type="ARC" class="breakdown-row cursor-pointer hover:bg-slate-800/60 rounded-2xl p-1 -m-1 transition-colors">
                         <div class="flex justify-between items-baseline mb-1.5 px-1">
                             <div class="flex items-center gap-x-2">
@@ -317,7 +315,6 @@
                         </div>
                     </div>
                     
-                    <!-- Soldier -->
                     <div data-type="SOL" class="breakdown-row cursor-pointer hover:bg-slate-800/60 rounded-2xl p-1 -m-1 transition-colors">
                         <div class="flex justify-between items-baseline mb-1.5 px-1">
                             <div class="flex items-center gap-x-2">
@@ -331,7 +328,6 @@
                         </div>
                     </div>
                     
-                    <!-- Confidant -->
                     <div data-type="CON" class="breakdown-row cursor-pointer hover:bg-slate-800/60 rounded-2xl p-1 -m-1 transition-colors">
                         <div class="flex justify-between items-baseline mb-1.5 px-1">
                             <div class="flex items-center gap-x-2">
@@ -449,13 +445,38 @@
             document.documentElement.style.setProperty('--accent', '#f59e0b');
         }
 
-        const questions = [ /* ... all 24 questions ... */ ];
+        const questions = [
+            { q: "When you face a major life crisis, what is your immediate reflex?", options: [ { text: "I hit the books/Bible to understand the theology of suffering.", type: "SCH" }, { text: "I start mapping out a recovery plan to fix the situation.", type: "ARC" }, { text: "I just want to DO something physical to fix it immediately.", type: "SOL" }, { text: "I retreat to quiet to sense what God is feeling about this.", type: "CON" } ] },
+            { q: "How do you best connect with God during a church service?", options: [ { text: "During the sermon, when a complex truth finally clicks.", type: "SCH" }, { text: "Looking around and seeing how the ministry is organized.", type: "ARC" }, { text: "During the 'call to action' or when sent out to serve.", type: "SOL" }, { text: "During the music/worship, sensing the atmosphere shift.", type: "CON" } ] },
+            { q: "You feel most 'spiritually deaf' when:", options: [ { text: "The teaching is shallow, emotional, or illogical.", type: "SCH" }, { text: "There is no vision, no plan, and we are just 'maintaining'.", type: "ARC" }, { text: "I am forced to sit still and listen without acting.", type: "SOL" }, { text: "The environment is loud, chaotic, or hurried.", type: "CON" } ] },
+            { q: "If God asked you to lead a project, you would want Him to give you:", options: [ { text: "The Manual: A clear explanation of WHY we are doing this.", type: "SCH" }, { text: "The Blueprint: A clear vision of the end goal.", type: "ARC" }, { text: "The Order: A direct command to take the hill.", type: "SOL" }, { text: "The Insight: A sense of the heart behind the mission.", type: "CON" } ] },
+            { q: "When reading the Bible, what excites you most?", options: [ { text: "Finding a cross-reference that explains a difficult doctrine.", type: "SCH" }, { text: "Reading about leaders like Nehemiah who built nations.", type: "ARC" }, { text: "Reading about battles, miracles, and acts of obedience.", type: "SOL" }, { text: "Reading the Psalms or Jesus’ intimate prayers.", type: "CON" } ] },
+            { q: "Your friends would describe your spiritual advice as:", options: [ { text: "Deep, grounded, and biblically accurate.", type: "SCH" }, { text: "Practical, strategic, and helpful.", type: "ARC" }, { text: "Challenging, blunt, and motivating.", type: "SOL" }, { text: "Insightful, empathetic, and intuitive.", type: "CON" } ] },
+            { q: "You know you have heard from God when:", options: [ { text: "An idea aligns perfectly with Scripture and logic.", type: "SCH" }, { text: "You see a problem and suddenly visualize the solution.", type: "ARC" }, { text: "You feel a 'holy friction' or gut-check to move.", type: "SOL" }, { text: "You have a deep, internal 'knowing' or peace.", type: "CON" } ] },
+            { q: "What is your biggest frustration with typical 'Quiet Times'?", options: [ { text: "It feels too emotional and lacks substance.", type: "SCH" }, { text: "It feels passive; I want to be planning something.", type: "ARC" }, { text: "It feels boring; I’d rather be doing kingdom work.", type: "SOL" }, { text: "It feels rushed; I need time to really tune in.", type: "CON" } ] },
+            { q: "Which biblical figure do you resonate with most?", options: [ { text: "Paul (The writer, the logician, the teacher).", type: "SCH" }, { text: "Nehemiah (The builder, the governor, the planner).", type: "ARC" }, { text: "Peter (The first one out of the boat, man of action).", type: "SOL" }, { text: "John (The beloved, the one who leaned on Jesus).", type: "CON" } ] },
+            { q: "How do you view 'Spiritual Warfare'?", options: [ { text: "Dismantling lies with the Truth of Scripture.", type: "SCH" }, { text: "Identifying the enemy's strategy and out-maneuvering him.", type: "ARC" }, { text: "Taking ground, breaking chains, and active confrontation.", type: "SOL" }, { text: "Discernment—sensing the spirit behind the scenes.", type: "CON" } ] },
+            { q: "When someone tells you 'God told me...', your first thought is:", options: [ { text: "'Show me chapter and verse.'", type: "SCH" }, { text: "'Does that line up with the reality of our situation?'", type: "ARC" }, { text: "'Okay, so what are you going to DO about it?'", type: "SOL" }, { text: "'Does that resonate with the character of God?'", type: "CON" } ] },
+            { q: "You feel God's pleasure most when you are:", options: [ { text: "Teaching or explaining a truth to someone else.", type: "SCH" }, { text: "Organizing a team to solve a complex problem.", type: "ARC" }, { text: "Taking a risk to help someone in need.", type: "SOL" }, { text: "Interceding in prayer for a broken situation.", type: "CON" } ] },
+            { q: "If you had a free Saturday to connect with God, you would:", options: [ { text: "Study a commentary or a difficult theological book.", type: "SCH" }, { text: "Map out your life goals or family vision.", type: "ARC" }, { text: "Go for a long hike, run, or build something.", type: "SOL" }, { text: "Go to a retreat center for silence and solitude.", type: "CON" } ] },
+            { q: "In a group discussion, you are usually the one who:", options: [ { text: "Clarifies the definitions and facts.", type: "SCH" }, { text: "Suggests the next steps and action plan.", type: "ARC" }, { text: "Pushes the group to stop talking and start doing.", type: "SOL" }, { text: "Notices who is being quiet and senses the mood.", type: "CON" } ] },
+            { q: "Your primary 'Spiritual Love Language' is:", options: [ { text: "Truth / Knowledge.", type: "SCH" }, { text: "Stewardship / Effectiveness.", type: "ARC" }, { text: "Obedience / Risk.", type: "SOL" }, { text: "Intimacy / Presence.", type: "CON" } ] },
+            { q: "When you are confused about a decision, you prefer to:", options: [ { text: "Make a 'Pro/Con' list based on biblical principles.", type: "SCH" }, { text: "Look at the resources available and see what is feasible.", type: "ARC" }, { text: "Just pick a path and trust God to steer the ship.", type: "SOL" }, { text: "Wait until the 'fog' lifts and you feel clear.", type: "CON" } ] },
+            { q: "What feels like 'wasted time' to you?", options: [ { text: "Listening to a sermon with no substance.", type: "SCH" }, { text: "Meetings with no agenda or outcome.", type: "ARC" }, { text: "Sitting around discussing things we can’t change.", type: "SOL" }, { text: "Surface-level small talk.", type: "CON" } ] },
+            { q: "You respect a leader who:", options: [ { text: "Knows his stuff and teaches with authority.", type: "SCH" }, { text: "Has a clear vision and executes it well.", type: "ARC" }, { text: "Is in the trenches fighting alongside the team.", type: "SOL" }, { text: "Is humble, transparent, and spiritually sensitive.", type: "CON" } ] },
+            { q: "If you wrote a book about God, the title would be:", options: [ { text: "The Logic of Grace.", type: "SCH" }, { text: "Building the Kingdom.", type: "ARC" }, { text: "Risking it All.", type: "SOL" }, { text: "The Whisper of the King.", type: "CON" } ] },
+            { q: "The biggest barrier to your spiritual growth is:", options: [ { text: "Over-analyzing to the point of paralysis.", type: "SCH" }, { text: "Treating God like a business partner.", type: "ARC" }, { text: "Moving too fast and leaving God behind.", type: "SOL" }, { text: "Being too led by emotions rather than truth.", type: "CON" } ] },
+            { q: "When you pray, your mind naturally goes to:", options: [ { text: "Reciting truths about who God is.", type: "SCH" }, { text: "Listing the needs and the resources required.", type: "ARC" }, { text: "Asking 'What's next, Lord?'", type: "SOL" }, { text: "Just sitting in silence, enjoying His presence.", type: "CON" } ] },
+            { q: "You define 'Faith' primarily as:", options: [ { text: "Believing what God has said is true.", type: "SCH" }, { text: "Trusting God's plan for the future.", type: "ARC" }, { text: "Acting on God's command without hesitation.", type: "SOL" }, { text: "Trusting God's heart even when it hurts.", type: "CON" } ] },
+            { q: "Which environment makes you feel most alive?", options: [ { text: "A library or a study.", type: "SCH" }, { text: "A construction site or a boardroom.", type: "ARC" }, { text: "An adventure or a crisis response scene.", type: "SOL" }, { text: "A quiet garden or a sanctuary.", type: "CON" } ] },
+            { q: "If you could have one spiritual superpower, it would be:", options: [ { text: "Wisdom / Knowledge.", type: "SCH" }, { text: "Administration / Leadership.", type: "ARC" }, { text: "Miracles / Power.", type: "SOL" }, { text: "Discernment / Prophecy.", type: "CON" } ] }
+        ];
 
         const typeDetails = {
-            SCH: { title: "THE SCHOLAR", icon: "📖", desc: "You are the Berean...", color: "#3b82f6", verse: "Acts 17:11...", growth: "Balance deep study..." },
-            ARC: { title: "THE ARCHITECT", icon: "🏗️", desc: "You are the Nehemiah...", color: "#10b981", verse: "Nehemiah 2:12...", growth: "Seek God's heart..." },
-            SOL: { title: "THE SOLDIER", icon: "⚔️", desc: "You are the Peter...", color: "#ef4444", verse: "James 2:17...", growth: "Slow down to confirm..." },
-            CON: { title: "THE CONFIDANT", icon: "🕊️", desc: "You are the Watchman...", color: "#8b5cf6", verse: "John 13:23...", growth: "Ground every impression..." }
+            SCH: { title: "THE SCHOLAR", icon: "📖", desc: "You are the Berean. You hear God through TRUTH and LOGIC. When you study Scripture and the concepts 'click,' that is the voice of God.", color: "#3b82f6", verse: "Acts 17:11 — '...they received the word with all readiness, and searched the Scriptures daily to find out whether these things were so.'", growth: "Balance deep study with courageous action and vulnerable community. Knowledge without obedience can quietly become pride." },
+            ARC: { title: "THE ARCHITECT", icon: "🏗️", desc: "You are the Nehemiah. You hear God through VISION and STRATEGY. You don't hear a voice — you see a blueprint for the future.", color: "#10b981", verse: "Nehemiah 2:12 — 'I set out during the night with a few men... I had not told anyone what my God had put in my heart to do for Jerusalem.'", growth: "Seek God's heart and timing before executing the plan. Vision without intimacy can slowly drift into self-reliance." },
+            SOL: { title: "THE SOLDIER", icon: "⚔️", desc: "You are the Peter. You hear God through ACTION and IMPULSE. You feel a holy friction to move. You hear God in the obedience.", color: "#ef4444", verse: "James 2:17 — 'Thus also faith by itself, if it does not have works, is dead.'", growth: "Slow down to confirm the nudge is truly from God, not impulse or adrenaline. Action without discernment burns bright but can burn out." },
+            CON: { title: "THE CONFIDANT", icon: "🕊️", desc: "You are the Watchman. You hear God through INTUITION and RADAR. You carry high-level intel on the spiritual atmosphere around you.", color: "#8b5cf6", verse: "John 13:23 — 'Now there was leaning on Jesus' bosom one of His disciples, whom Jesus loved.'", growth: "Ground every impression in Scripture and wise counsel. Beautiful intuition without truth can slowly drift into subjectivity." }
         };
 
         let currentQIndex = 0;
@@ -467,9 +488,25 @@
 
         const STORAGE_KEY = 'signal_diagnostic_progress_v2';
 
-        function saveProgress() { /* ... */ }
-        function loadProgress() { /* ... */ }
-        function clearProgress() { /* ... */ }
+        function saveProgress() {
+            const hasProgress = currentQIndex > 0 || answers.some(a => a !== null);
+            if (!hasProgress) return;
+            const journalEl = document.getElementById('journal-entry');
+            const data = { currentQIndex, answers, journal: journalEl ? journalEl.value : '', timestamp: Date.now() };
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+        }
+
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (!saved) return null;
+                const data = JSON.parse(saved);
+                if (Date.now() - (data.timestamp || 0) > 14 * 24 * 60 * 60 * 1000) { localStorage.removeItem(STORAGE_KEY); return null; }
+                return data;
+            } catch(e) { return null; }
+        }
+
+        function clearProgress() { try { localStorage.removeItem(STORAGE_KEY); } catch(e) {} }
 
         function showTypeDetail(typeKey) {
             const data = typeDetails[typeKey];
@@ -477,27 +514,317 @@
             document.getElementById('modal-icon').innerHTML = data.icon;
             document.getElementById('modal-icon').style.color = data.color;
             const titleEl = document.getElementById('modal-title');
-            titleEl.textContent = data.title;
-            titleEl.style.color = data.color;
+            titleEl.textContent = data.title; titleEl.style.color = data.color;
             document.getElementById('modal-desc').textContent = data.desc;
             document.getElementById('modal-verse').textContent = data.verse;
             document.getElementById('modal-growth').textContent = data.growth;
-            document.getElementById('type-modal').classList.remove('hidden');
-            document.getElementById('type-modal').classList.add('flex');
+            const modal = document.getElementById('type-modal');
+            modal.classList.remove('hidden'); modal.classList.add('flex');
         }
 
         function hideTypeDetail() {
             const modal = document.getElementById('type-modal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
+            modal.classList.remove('flex'); modal.classList.add('hidden');
         }
 
-        /* ... all the rest of the working JS (startQuiz, renderQuestion, selectOption, resumeQuiz, calculateAndShowResults with breakdown click handlers, etc.) ... */
+        function startQuiz(resumeData = null) {
+            introScreen.classList.remove('active');
+            quizScreen.classList.add('active');
+            progressContainer.classList.remove('hidden');
+            if (resumeData) {
+                currentQIndex = resumeData.currentQIndex || 0;
+                answers = resumeData.answers || new Array(questions.length).fill(null);
+            } else {
+                currentQIndex = 0;
+                answers = new Array(questions.length).fill(null);
+                scores = { SCH: 0, ARC: 0, SOL: 0, CON: 0 };
+                clearProgress();
+            }
+            renderQuestion();
+            saveProgress();
+        }
+
+        function resumeQuiz() {
+            const saved = loadProgress();
+            if (!saved) { startQuiz(); return; }
+            const allAnswered = saved.answers && saved.answers.length === questions.length && saved.answers.every(a => a !== null);
+            if (allAnswered) {
+                currentQIndex = saved.currentQIndex || (questions.length - 1);
+                answers = saved.answers;
+                scores = { SCH: 0, ARC: 0, SOL: 0, CON: 0 };
+                answers.forEach(type => { if (type) scores[type]++; });
+                introScreen.classList.remove('active');
+                quizScreen.classList.remove('active');
+                progressContainer.classList.add('hidden');
+                resultsScreen.classList.add('active');
+                const journalEl = document.getElementById('journal-entry');
+                if (journalEl && saved.journal) journalEl.value = saved.journal;
+                calculateAndShowResults();
+                showToast("Welcome back! Here's your previous report.");
+                return;
+            }
+            startQuiz(saved);
+            showToast(`Resuming at question ${saved.currentQIndex + 1}`);
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQIndex];
+            questionText.textContent = q.q;
+            qCounter.textContent = `${currentQIndex + 1} / ${questions.length}`;
+            const progressPercent = ((currentQIndex + 1) / questions.length) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+            prevBtn.disabled = currentQIndex === 0;
+            if (currentQIndex === questions.length - 1) {
+                nextBtnText.textContent = "See Results";
+                nextBtn.innerHTML = `<span>See My Results</span> <i class="fa-solid fa-check ml-2"></i>`;
+            } else {
+                nextBtnText.textContent = "Next";
+                nextBtn.innerHTML = `<span>Next</span> <i class="fa-solid fa-chevron-right ml-2"></i>`;
+            }
+            optionsContainer.innerHTML = '';
+            let shuffled = [...q.options];
+            if (!answers[currentQIndex]) shuffled.sort(() => Math.random() - 0.5);
+            shuffled.forEach(opt => {
+                const card = document.createElement('div');
+                card.className = `option-card border border-slate-700 bg-slate-900 hover:border-amber-500/70 rounded-3xl p-5 cursor-pointer flex items-start gap-x-4 active:bg-slate-800`;
+                const isSelected = answers[currentQIndex] === opt.type;
+                if (isSelected) card.classList.add('selected', 'border-amber-500');
+                card.innerHTML = `<div class="flex-1"><div class="text-[15px] leading-snug pr-2">${opt.text}</div></div><div class="w-6 h-6 flex-shrink-0 mt-0.5 flex items-center justify-center">${isSelected ? `<i class="fa-solid fa-check-circle text-amber-400 text-2xl"></i>` : `<div class="w-5 h-5 rounded-full border border-slate-600"></div>`}</div>`;
+                card.onclick = () => selectOption(opt.type, card, shuffled);
+                optionsContainer.appendChild(card);
+            });
+        }
+
+        function selectOption(type, clickedCard, allOptions) {
+            document.querySelectorAll('#options-container .option-card').forEach(c => { c.classList.remove('selected', 'border-amber-500'); const iconContainer = c.querySelector('.fa-check-circle, .fa-circle'); if (iconContainer) iconContainer.outerHTML = `<div class="w-5 h-5 rounded-full border border-slate-600"></div>`; });
+            clickedCard.classList.add('selected', 'border-amber-500');
+            const checkDiv = clickedCard.querySelector('.w-5.h-5');
+            if (checkDiv) checkDiv.outerHTML = `<i class="fa-solid fa-check-circle text-amber-400 text-2xl"></i>`;
+            answers[currentQIndex] = type;
+            saveProgress();
+            setTimeout(() => {
+                if (currentQIndex < questions.length - 1) { currentQIndex++; renderQuestion(); saveProgress(); } else { finishQuiz(); }
+            }, 420);
+        }
+
+        function nextQuestion() {
+            if (!answers[currentQIndex]) { showToast("Please select an answer first"); return; }
+            if (currentQIndex < questions.length - 1) { currentQIndex++; renderQuestion(); saveProgress(); } else { finishQuiz(); }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) { currentQIndex--; renderQuestion(); saveProgress(); }
+        }
+
+        function finishQuiz() {
+            scores = { SCH: 0, ARC: 0, SOL: 0, CON: 0 };
+            answers.forEach(type => { if (type) scores[type]++; });
+            saveProgress();
+            quizScreen.classList.remove('active');
+            progressContainer.classList.add('hidden');
+            resultsScreen.classList.add('active');
+            calculateAndShowResults();
+        }
+
+        function calculateAndShowResults() {
+            const total = questions.length;
+            const pSch = Math.round((scores.SCH / total) * 100);
+            const pArc = Math.round((scores.ARC / total) * 100);
+            const pSol = Math.round((scores.SOL / total) * 100);
+            const pCon = Math.round((scores.CON / total) * 100);
+            document.getElementById('score-scholar').textContent = `${pSch}%`;
+            document.getElementById('score-architect').textContent = `${pArc}%`;
+            document.getElementById('score-soldier').textContent = `${pSol}%`;
+            document.getElementById('score-confidant').textContent = `${pCon}%`;
+            setTimeout(() => {
+                document.getElementById('fill-scholar').style.width = `${pSch}%`;
+                document.getElementById('fill-architect').style.width = `${pArc}%`;
+                document.getElementById('fill-soldier').style.width = `${pSol}%`;
+                document.getElementById('fill-confidant').style.width = `${pCon}%`;
+            }, 80);
+            const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1] || ['SCH','ARC','SOL','CON'].indexOf(a[0]) - ['SCH','ARC','SOL','CON'].indexOf(b[0]));
+            const primaryKey = sorted[0][0];
+            const primaryData = typeDetails[primaryKey];
+            const primaryCard = document.getElementById('primary-card');
+            primaryCard.style.borderColor = primaryData.color + '40';
+            primaryCard.style.boxShadow = `0 0 0 1px ${primaryData.color}20`;
+            document.getElementById('primary-icon').innerHTML = primaryData.icon;
+            document.getElementById('primary-icon').style.color = primaryData.color;
+            document.getElementById('primary-title').textContent = primaryData.title;
+            document.getElementById('primary-title').style.color = primaryData.color;
+            document.getElementById('primary-desc').textContent = primaryData.desc;
+            document.getElementById('primary-verse').textContent = primaryData.verse;
+            document.getElementById('primary-growth').textContent = primaryData.growth;
+            launchConfetti(primaryData.color);
+            const journalEl = document.getElementById('journal-entry');
+            if (journalEl) journalEl.oninput = () => saveProgress();
+            const breakdownContainer = document.getElementById('breakdown-container');
+            if (breakdownContainer) {
+                breakdownContainer.querySelectorAll('.breakdown-row').forEach(row => {
+                    row.onclick = () => showTypeDetail(row.dataset.type);
+                });
+            }
+        }
+
+        function launchConfetti(primaryColor) {
+            const colors = [primaryColor, '#f59e0b', '#64748b', '#e2e8f0'];
+            const container = document.body;
+            for (let i = 0; i < 42; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'confetti';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = '-20px';
+                particle.style.width = (Math.random() * 9 + 6) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = Math.random() > 0.6 ? '50%' : '2px';
+                particle.style.opacity = Math.random() * 0.7 + 0.5;
+                particle.style.zIndex = '99999';
+                particle.style.position = 'fixed';
+                particle.style.pointerEvents = 'none';
+                container.appendChild(particle);
+                const duration = Math.random() * 2800 + 2400;
+                const angle = Math.random() * 60 - 30;
+                particle.animate([{ transform: `translateY(0) rotate(0deg)`, opacity: particle.style.opacity }, { transform: `translateY(${window.innerHeight + 100}px) rotate(${angle * 4}deg)`, opacity: 0 }], { duration, easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)' }).onfinish = () => particle.remove();
+            }
+        }
+
+        function toggleVoiceInput() {
+            const textarea = document.getElementById('journal-entry');
+            const micIcon = document.getElementById('mic-icon');
+            const micBtn = document.getElementById('mic-btn');
+            if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) { showToast("Voice input works best in Chrome or Edge"); return; }
+            if (!recognition) {
+                const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRec();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+                recognition.onresult = (event) => { let transcript = ''; for (let i = event.resultIndex; i < event.results.length; i++) transcript += event.results[i][0].transcript; textarea.value = transcript.trim(); };
+                recognition.onerror = (e) => { showToast("Voice recognition error. Try again."); stopListening(); };
+                recognition.onend = () => stopListening();
+            }
+            if (!isListening) {
+                try { recognition.start(); isListening = true; micIcon.classList.remove('fa-microphone'); micIcon.classList.add('fa-microphone-slash', 'text-red-400'); micBtn.classList.add('!bg-red-500/10', '!text-red-400'); showToast("Listening... speak clearly"); } catch (err) { showToast("Could not start microphone"); }
+            } else { stopListening(); }
+        }
+        
+        function stopListening() {
+            if (recognition) recognition.stop();
+            isListening = false;
+            const micIcon = document.getElementById('mic-icon');
+            const micBtn = document.getElementById('mic-btn');
+            micIcon.classList.remove('fa-microphone-slash', 'text-red-400');
+            micIcon.classList.add('fa-microphone');
+            micBtn.classList.remove('!bg-red-500/10', '!text-red-400');
+        }
+
+        function getReportText() {
+            const journal = document.getElementById('journal-entry').value.trim();
+            const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+            const primaryKey = sorted[0][0];
+            const primaryData = typeDetails[primaryKey];
+            const total = questions.length;
+            const pSch = Math.round((scores.SCH / total) * 100); const pArc = Math.round((scores.ARC / total) * 100); const pSol = Math.round((scores.SOL / total) * 100); const pCon = Math.round((scores.CON / total) * 100);
+            let text = `THE SIGNAL • HEARING GOD DIAGNOSTIC\nDate: ${new Date().toLocaleDateString()}\n\nPRIMARY FREQUENCY: ${primaryData.title}\n${primaryData.desc}\n\nSCRIPTURE ANCHOR:\n${primaryData.verse}\n\nGROWTH EDGE:\n${primaryData.growth}\n\nSIGNAL BREAKDOWN\n• The Scholar (Truth):     ${pSch}%\n• The Architect (Vision):  ${pArc}%\n• The Soldier (Action):    ${pSol}%\n• The Confidant (Intuition): ${pCon}%\n\n`;
+            if (journal) text += `MY JOURNAL / REFLECTIONS:\n${journal}\n\n`;
+            text += `— Generated by The Signal Diagnostic v2.0 —\nGod is speaking. You might just be on the right frequency now.`;
+            return text;
+        }
+
+        function copyReport() {
+            const text = getReportText();
+            navigator.clipboard.writeText(text).then(() => showToast("Report copied to clipboard")).catch(() => { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast("Report copied"); });
+        }
+
+        function downloadReport() {
+            const text = getReportText();
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = `The-Signal-Report-${new Date().toISOString().slice(0,10)}.txt`;
+            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+            showToast("Report downloaded");
+        }
+
+        function shareResults() {
+            const text = getReportText();
+            const primaryTitle = document.getElementById('primary-title').textContent;
+            if (navigator.share) {
+                navigator.share({ title: 'My Signal Report - The Signal Diagnostic', text: `My primary hearing style is ${primaryTitle}. ${text.substring(0, 280)}...` }).catch(() => copyReport());
+            } else { copyReport(); showToast("Link copied (sharing not supported on this device)"); }
+        }
+
+        function retakeQuiz() {
+            clearProgress();
+            resultsScreen.classList.remove('active');
+            introScreen.classList.add('active');
+            currentQIndex = 0;
+            answers = new Array(questions.length).fill(null);
+            scores = { SCH: 0, ARC: 0, SOL: 0, CON: 0 };
+            const journalEl = document.getElementById('journal-entry'); if (journalEl) journalEl.value = '';
+            ['fill-scholar','fill-architect','fill-soldier','fill-confidant'].forEach(id => { const el = document.getElementById(id); if (el) el.style.width = '0%'; });
+        }
+
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = message;
+            toast.classList.remove('hidden'); toast.classList.add('flex');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => { toast.classList.remove('flex'); toast.classList.add('hidden'); }, 2800);
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (!quizScreen.classList.contains('active')) return;
+            if (e.key === 'ArrowRight' || e.key === 'Enter') { e.preventDefault(); if (!answers[currentQIndex]) showToast("Select an answer first"); else nextQuestion(); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); prevQuestion(); }
+            if (['1','2','3','4'].includes(e.key)) { const cards = optionsContainer.querySelectorAll('.option-card'); const index = parseInt(e.key) - 1; if (cards[index]) cards[index].click(); }
+        });
 
         function initializeApp() {
             initializeTailwind();
-            /* ... existing code + the welcome back banner logic ... */
+            console.log('%c[The Signal] v2.0 initialized — beautiful, voice-enabled, PWA-ready diagnostic.', 'color:#64748b');
+            const logoArea = document.querySelector('#intro-screen .flex.items-center');
+            if (logoArea) { logoArea.style.cursor = 'pointer'; logoArea.addEventListener('click', () => { if (deferredPrompt) installApp(); else showToast("Add to Home Screen from your browser menu"); }); }
+            progressContainer.classList.add('hidden');
+            const savedProgress = loadProgress();
+            if (savedProgress) {
+                const introContent = document.querySelector('#intro-screen .max-w-md');
+                if (introContent) {
+                    const resumeDiv = document.createElement('div');
+                    resumeDiv.className = 'mb-6 p-4 bg-slate-900 border border-amber-500/30 rounded-3xl text-center';
+                    const answeredCount = (savedProgress.answers || []).filter(a => a !== null).length;
+                    const isComplete = answeredCount === questions.length;
+                    if (isComplete) {
+                        resumeDiv.innerHTML = `<div class="flex items-center justify-center gap-x-2 text-emerald-400 mb-2"><i class="fa-solid fa-check-circle"></i><span class="font-semibold text-sm">You completed The Signal previously</span></div><button onclick="resumeQuiz()" class="w-full bg-emerald-600 hover:bg-emerald-500 active:scale-[0.985] transition-all text-white font-bold py-3 rounded-3xl text-sm flex items-center justify-center gap-x-2"><i class="fa-solid fa-redo"></i><span>View My Last Report</span></button><button onclick="startFreshFromIntro(this)" class="mt-2 text-xs text-slate-400 hover:text-slate-300 underline">Start a fresh diagnostic instead</button>`;
+                    } else {
+                        const qNum = (savedProgress.currentQIndex || 0) + 1;
+                        resumeDiv.innerHTML = `<div class="flex items-center justify-center gap-x-2 text-amber-400 mb-2"><i class="fa-solid fa-play"></i><span class="font-semibold text-sm">Welcome back!</span></div><p class="text-xs text-slate-400 mb-3">You were on question <strong>${qNum} of 24</strong> (${answeredCount} answered)</p><button onclick="resumeQuiz()" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 active:scale-[0.985] transition-all text-slate-950 font-bold py-3 rounded-3xl text-sm flex items-center justify-center gap-x-2"><i class="fa-solid fa-play"></i><span>Resume Where I Left Off</span></button><button onclick="startFreshFromIntro(this)" class="mt-2 text-xs text-slate-400 hover:text-slate-300 underline">Start over from the beginning</button>`;
+                    }
+                    const btnContainer = introContent.querySelector('.max-w-xs');
+                    if (btnContainer) introContent.insertBefore(resumeDiv, btnContainer); else introContent.appendChild(resumeDiv);
+                }
+            }
         }
+
+        function startFreshFromIntro(element) { clearProgress(); if (element && element.parentNode) element.parentNode.remove(); startQuiz(); }
+
+        const introScreen = document.getElementById('intro-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultsScreen = document.getElementById('results-screen');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('quiz-progress');
+        const qCounter = document.getElementById('q-counter');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const nextBtnText = document.getElementById('next-btn-text');
+
+        window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
+        function installApp() { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then((choiceResult) => { if (choiceResult.outcome === 'accepted') showToast("Thanks! The Signal is now on your home screen."); deferredPrompt = null; }); } }
 
         window.onload = initializeApp;
     </script>
